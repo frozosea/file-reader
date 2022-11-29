@@ -44,3 +44,15 @@ func (f *FileReader) GetFileNameByDirNameAndFilename(dirName string, filename st
 		return ""
 	}
 }
+func (f *FileReader) GetSeparator() string {
+	switch runtime.GOOS {
+	case "windows":
+		return `\`
+	case "darwin":
+		return `/`
+	case "linux":
+		return `/`
+	default:
+		return ""
+	}
+}
